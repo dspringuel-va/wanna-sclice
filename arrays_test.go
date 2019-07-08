@@ -27,10 +27,19 @@ func (s *ArraySuite) Test_Array_Empty() {
 	fmt.Printf("a: %#v\n", a)
 }
 
-
 func (s *ArraySuite) Test_Array_HalfInitialized() {
 	a := [2]string{"a"}
 	fmt.Printf("a: %#v\n", a)
+}
+
+func (s *ArraySuite) Test_Array_Len() {
+	a := [2]string{"a", "b"}
+	fmt.Printf("len(a): %#v\n", len(a))
+}
+
+func (s *ArraySuite) Test_Array_LenEmpty() {
+	a := [2]string{}
+	fmt.Printf("len(a): %#v\n", len(a))
 }
 
 func (s *ArraySuite) Test_Array_Equality() {
@@ -115,6 +124,7 @@ func (s *ArraySuite) Test_Array_InStruct_Assignment() {
 	fmt.Printf("b: %#v\n", b)
 	fmt.Printf("c: %#v\n", c)
 }
+
 
 func Test_Arrays(t *testing.T) {
 	suite.Run(t, &ArraySuite{})

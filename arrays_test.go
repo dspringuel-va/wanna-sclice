@@ -48,6 +48,12 @@ func (s *ArraySuite) Test_Array_Equality() {
 	fmt.Printf("a == b: %v\n", a == b)
 }
 
+func (s *ArraySuite) Test_Array_Equality_DifferentObject() {
+	a := [2]string{"a", "b"}
+	b := [2]string{"a", "b"}
+	fmt.Printf("a == b: %v\n", a == b)
+}
+
 func (s *ArraySuite) Test_Array_Equality_AfterModification() {
 	a := [2]string{"a", "b"}
 	b := a

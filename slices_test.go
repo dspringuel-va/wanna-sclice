@@ -48,6 +48,17 @@ func (s *SliceSuite) Test_Slice_LenEmpty() {
 	fmt.Printf("len(a): %#v\n", len(a))
 }
 
+func (s *SliceSuite) Test_Slice_make() {
+	a := make([]string, 2)
+	fmt.Printf("a: %#v\n", a)
+}
+
+func (s *SliceSuite) Test_Slice_append() {
+	a := []string{"a", "b"}
+	a = append(a, "c")
+	fmt.Printf("a: %#v\n", a)
+}
+
 func (s *SliceSuite) Test_Slice_Equality() {
 	a := []string{"a", "b"}
 	b := a
@@ -90,8 +101,8 @@ func (s *SliceSuite) Test_Slice_PointerDereferencedEquality() {
 func (s *SliceSuite) Test_Slice_PassArrayToFunction() {
 	a := []string{"a", "b"}
 
-	f := func(a []string) {
-		a[0] = "c"
+	f := func(b []string) {
+		b[0] = "c"
 	}
 	f(a)
 
@@ -101,9 +112,9 @@ func (s *SliceSuite) Test_Slice_PassArrayToFunction() {
 func (s *SliceSuite) Test_Slice_PassPointerArrayToFunction() {
 	a := []string{"a", "b"}
 
-	f := func(a *[]string) {
+	f := func(b *[]string) {
 		// a[0] = "c" doesn't compile
-		(*a)[0] = "c"
+		(*b)[0] = "c"
 	}
 	f(&a)
 

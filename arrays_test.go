@@ -37,9 +37,25 @@ func (s *ArraySuite) Test_Array_Len() {
 	fmt.Printf("len(a): %#v\n", len(a))
 }
 
+func (s *ArraySuite) Test_Array_Cap() {
+	a := [2]string{"a", "b"}
+	fmt.Printf("len(a): %#v\n", cap(a))
+}
+
 func (s *ArraySuite) Test_Array_LenEmpty() {
 	a := [2]string{}
 	fmt.Printf("len(a): %#v\n", len(a))
+}
+
+func (s *ArraySuite) Test_Array_make() {
+	// a := make([2]string, 2) doesn't compile
+	// fmt.Printf("a: %#v\n", a)
+}
+
+func (s *ArraySuite) Test_Array_append() {
+	a := [2]string{"a", "b"}
+	// a = append(a, "c") doesn't compile
+	fmt.Printf("a: %#v\n", a)
 }
 
 func (s *ArraySuite) Test_Array_Equality() {
@@ -88,8 +104,8 @@ func (s *ArraySuite) Test_Array_PointerDereferencedEquality() {
 func (s *ArraySuite) Test_Array_PassArrayToFunction() {
 	a := [2]string{"a", "b"}
 
-	f := func(a [2]string) {
-		a[0] = "c"
+	f := func(b [2]string) {
+		b[0] = "c"
 	}
 	f(a)
 
@@ -99,8 +115,8 @@ func (s *ArraySuite) Test_Array_PassArrayToFunction() {
 func (s *ArraySuite) Test_Array_PassPointerArrayToFunction() {
 	a := [2]string{"a", "b"}
 
-	f := func(a *[2]string) {
-		a[0] = "c"
+	f := func(b *[2]string) {
+		b[0] = "c"
 	}
 	f(&a)
 
@@ -130,6 +146,7 @@ func (s *ArraySuite) Test_Array_InStruct_Assignment() {
 	fmt.Printf("b: %#v\n", b)
 	fmt.Printf("c: %#v\n", c)
 }
+
 
 
 func Test_Arrays(t *testing.T) {

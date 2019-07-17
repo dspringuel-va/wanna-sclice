@@ -65,6 +65,12 @@ func (s *SliceSuite) Test_Slice_Equality() {
 	// fmt.Printf("a == b: %v\n", a == b) doesn't compile
 	fmt.Printf("a == b: %v\n", reflect.DeepEqual(a, b))
 }
+func (s *SliceSuite) Test_Slice_Equality_DifferentObject() {
+	a := []string{"a", "b"}
+	b := []string{"a", "b"}
+	// fmt.Printf("a == b: %v\n", a == b) doesn't compile
+	fmt.Printf("a == b: %v\n", reflect.DeepEqual(a, b))
+}
 
 func (s *SliceSuite) Test_Slice_Equality_AfterModification() {
 	a := []string{"a", "b"}
